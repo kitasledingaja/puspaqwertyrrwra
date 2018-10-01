@@ -83,7 +83,7 @@
               <li class="dropdown notification-menu">
                 <a href="#!" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">
                 <i class="icon-bell"></i>
-                <!-- <span class="badge badge-danger header-badge">9</span> -->
+                
               </a>
                 <ul class="dropdown-menu">
                   <li class="not-head">You have <b class="text-primary">4</b> new notifications.</li>
@@ -136,7 +136,7 @@
               </a>
                 <ul class="dropdown-menu settings-menu">
                   <li><a href="#!"><i class="icon-settings"></i> Settings</a></li>
-                  <li><a href="profile.html"><i class="icon-user"></i> Profile</a></li>
+                  <li><a href="<?= base_url('index.php/profile/profile_admin');?>"><i class="icon-user"></i> Profile</a></li>
                   <li><a href="message.html"><i class="icon-envelope-open"></i> My Messages</a></li>
                   <li class="p-0">
                                     <div class="dropdown-divider m-0"></div>
@@ -214,7 +214,7 @@
           <!-- sidebar profile Menu-->
           <ul class="nav sidebar-menu extra-profile-list">
             <li>
-   <a class="waves-effect waves-dark" href="profile.html">
+   <a class="waves-effect waves-dark" href="<?= base_url('index.php/profile/profile_admin');?>">
                      <i class="icon-user"></i>
                      <span class="menu-text">View Profile</span>
                      <span class="selected"></span>
@@ -247,9 +247,9 @@
                 <li class="nav-level">Components</li>
                 <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Artikel </span><i class="icon-arrow-down"></i></a>
                     <ul class="treeview-menu">
-                        <li><a class="waves-effect waves-dark" href="accordion.html"><i class="icon-arrow-right"></i> Accordion</a></li>
-                        <li><a class="waves-effect waves-dark" href="button.html"><i class="icon-arrow-right"></i> Button</a></li>
-                        <li><a class="waves-effect waves-dark" href="label-badge.html"><i class="icon-arrow-right"></i> Label Badge</a></li>
+                         <li><a class="waves-effect waves-dark" href="<?= base_url('index.php/artikel/alldata');?>"><i class="icon-arrow-right"></i>Lihat Data Artikel</a></li>
+                        <li><a class="waves-effect waves-dark" href="<?= base_url('index.php/artikel/summernote');?>"><i class="icon-arrow-right"></i>Buat Artikel</a></li>
+                       <!--  <li><a class="waves-effect waves-dark" href="label-badge.html"><i class="icon-arrow-right"></i> Label Badge</a></li>
                         <li><a class="waves-effect waves-dark" href="bootstrap-ui.html"><i class="icon-arrow-right"></i> Grid system</a></li>
                         <li><a class="waves-effect waves-dark" href="box-shadow.html"><i class="icon-arrow-right"></i> Box Shadow</a></li>
                         <li><a class="waves-effect waves-dark" href="color.html"><i class="icon-arrow-right"></i> Color</a></li>
@@ -258,7 +258,7 @@
                         <li><a class="waves-effect waves-dark" href="panels-wells.html"><i class="icon-arrow-right"></i> Panels-Wells</a></li>
                         <li><a class="waves-effect waves-dark" href="tabs.html"><i class="icon-arrow-right"></i> Tabs</a></li>
                         <li><a class="waves-effect waves-dark" href="tooltips.html"><i class="icon-arrow-right"></i> Tooltips</a></li>
-                        <li><a class="waves-effect waves-dark" href="typography.html"><i class="icon-arrow-right"></i> Typography</a></li>
+                        <li><a class="waves-effect waves-dark" href="typography.html"><i class="icon-arrow-right"></i> Typography</a></li> -->
                     </ul>
                 </li>
 
@@ -540,7 +540,7 @@
                         <div class="md-card-block">
                             <p class="m-b-20">
 
-          <form action="alldata" method="POST" enctype="multipart/form-data">
+          <form action="datasummernote" method="POST" enctype="multipart/form-data"> <!-- disini kayaknya salah -->
             <body id="page-top" bgcolor="black">    
                     <div class="col-md-15 container dim-container" style="padding-bottom: 470px;" >
             <div id="edit" style="padding-bottom: 10px; display: block;">
@@ -550,56 +550,33 @@
                 <div class="row">
                   <div class="col-sm-12 table-responsive">
                      <table class="table">
-                  <thead>
+                  <thead> 
                       <tr>
-                        <th>Id Artikel</th>
-                        <th>Id Admin</th>
-                        <th>Judul</th>
-                        <th>Isi</th>
-                        <th>Gambar</th>
-                        <th>Tanggal Upload</th>
-                        <th>Aksi</th>
+                        <!-- <th class="text-center">Id Artikel</th> -->
+                        <!-- <th class="text-center">Id Admin</th> -->
+                        <th class="text-center">Judul</th>
+                        <th class="text-center">Isi</th>
+                        <th class="text-center pro-pic">Gambar</th>
+                        <th class="text-center">Tanggal Upload</th>
+                        <th class="text-center">Aksi</th>
                        </tr>
                   </thead>
                   <tbody>
+                  <?php foreach ($data_artikel as $data) { ?> 
                   <tr>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>Game Bisa Jadi</td>
-                  <td>Bisa Jadi adalah game yang memungkinkan anda untuk menebak kata yang hanya diberikan clue pada kepala partner anda selanjutnya anda harus menebak kata yang tepat dari clue yang diberikan. Tapi ingat ada waktu 2 menit untuk menebak kata tersebut</td>
-                  <td><img src="<?= base_url();?>assets/images/bisajadi.jpg"></td>
-                  <td>2018-09-15</td>
-                  <td><button type="submit" class="btn btn-success waves-effect waves-light m-r-20">Edit</button> <button type="submit" class="btn btn-danger waves-effect waves-light m-r-20">Hapus</button></td>
+                  <!-- <td><?= $data->id_artikel;?></td> -->
+                  <!-- <td><?= $data->id_admin;?></td> -->
+                  <td><?= $data->judul; ?></td>
+                  <td><?= $data->isi; ?></td>
+                  <td><img src="<?php echo base_url('assets/images/').$data->files;?>" width="150px"/></td>
+                  <td><?= $data->artikel_tanggal; ?></td>
+                  <td><button type="submit" class="btn btn-success waves-effect waves-light m-r-20"><a href="<?=base_url() ?>index.php/artikel/updateDataArtikel/<?=$data->id_artikel; ?>"></a>Edit</button> <button type="submit" class="btn btn-danger waves-effect waves-light m-r-20"><a href="<?=base_url() ?>index.php/artikel/deleteDataArtikel/<?=$data->id_artikel; ?>"></a>Hapus</button></td>
                   </tr>
-                   <tr>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>Jumping Animals</td>
-                  <td>Game Jumping Animals is development by Float ID. This game is supported with good graphics and easy to play. There are 12 characters of animals that can be selected players. There are rabbits, frogs, grasshoppers, kangaroos, squirrels and dragons. Girl or man can play this game. How to play is very easy. Only with tap, then be prepared to make a new jump record.</td>
-                  <td><img src="<?= base_url();?>assets/images/gonggong.jpg"></td>
-                  <td>2018-09-15</td>
-                  <td><button type="submit" class="btn btn-success waves-effect waves-light m-r-20">Edit</button> <button type="submit" class="btn btn-danger waves-effect waves-light m-r-20">Hapus</button></td>
-                  </tr>
-                  <tr>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>GongGong In The Sky</td>
-                  <td>Do you know what is GongGong? GongGong is a kind of snail that lives in at Batam, Indonesia. In fact, there are a lot of GongGong die due to humans doing and then humans make GongGong to be some delicious cuisine. So, why dont we say "thank you" to GongGong? Come On !!! Lets help GongGong to reach the nirvana. GongGong In The Sky ( GITS ) is game genre arcade and very easy to play. User just tap and tilt.</td>
-                  <td><img src="<?= base_url();?>assets/images/v3.jpg"></td>
-                  <td>2018-09-15</td>
-                  <td><button type="submit" class="btn btn-success waves-effect waves-light m-r-20">Edit</button> <button type="submit" class="btn btn-danger waves-effect waves-light m-r-20">Hapus</button></td>
-                  </tr>
+                  <?php } ?>
             
-          
-            <!-- <a href="<?=base_url() ?>index.php/artikel/<?= $data->id_artikel ?>">Delete | </a>
-            
-            <a href="<?=base_url() ?>index.php/artikel/<?= $data->id_artikel ?>">Update</a> -->
-            
-                
+                </form>
               </td>
-
           </tr>
-           </form>
                             <p class="m-b-20">
                             </p>
 
