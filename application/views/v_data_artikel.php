@@ -540,7 +540,7 @@
                         <div class="md-card-block">
                             <p class="m-b-20">
 
-          <form action="datasummernote" method="POST" enctype="multipart/form-data"> <!-- disini kayaknya salah -->
+          <!--<form action="datasummernote" method="POST" enctype="multipart/form-data"> <!-- disini kayaknya salah -->
             <body id="page-top" bgcolor="black">    
                     <div class="col-md-15 container dim-container" style="padding-bottom: 470px;" >
             <div id="edit" style="padding-bottom: 10px; display: block;">
@@ -570,11 +570,15 @@
                   <td><?= $data->isi; ?></td>
                   <td><img src="<?php echo base_url('assets/images/').$data->files;?>" width="150px"/></td>
                   <td><?= $data->artikel_tanggal; ?></td>
-                  <td><button type="submit" class="btn btn-success waves-effect waves-light m-r-20"><a href="<?=base_url() ?>index.php/artikel/updateDataArtikel/<?=$data->id_artikel; ?>"></a>Edit</button> <button type="submit" class="btn btn-danger waves-effect waves-light m-r-20"><a href="<?=base_url() ?>index.php/artikel/deleteDataArtikel/<?=$data->id_artikel; ?>"></a>Hapus</button></td>
+                  <td><button type="submit" class="btn btn-success waves-effect waves-light m-r-20"><a href="<?=base_url() ?>index.php/artikel/updateDataArtikel/<?=$data->id_artikel; ?>"></a>Edit</button> 
+
+                    <!-- Kalau Mau get, bukan <a> didalam button , tapi <a> dikasih kelas aja , nih contohnya-->
+                    <a class="btn btn-danger waves-effect waves-light m-r-20" href="<?=base_url() ?>index.php/artikel/deleteDataArtikel/<?=$data->id_artikel; ?>">Hapus Data</a>
+                  </td>
                   </tr>
                   <?php } ?>
             
-                </form>
+                <!-- </form> -->
               </td>
           </tr>
                             <p class="m-b-20">
