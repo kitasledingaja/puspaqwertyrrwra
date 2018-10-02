@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Buat Artikel | Float Indonesia</title>
-
-    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <title>Ubah Artikel | Float Indonesia</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -83,7 +76,7 @@
               <li class="dropdown notification-menu">
                 <a href="#!" data-toggle="dropdown" aria-expanded="false" class="dropdown-toggle">
                 <i class="icon-bell"></i>
-                
+                <!-- <span class="badge badge-danger header-badge">9</span> -->
               </a>
                 <ul class="dropdown-menu">
                   <li class="not-head">You have <b class="text-primary">4</b> new notifications.</li>
@@ -131,12 +124,12 @@
               <li class="dropdown">
                 <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
                               <span><img class="img-circle " src="<?= base_url();?>assets/images/avatar-6.png" style="width:40px;" alt="User Image"></span>
-                              <span><b><?php echo $this->session->userdata("username") ?></b> <i class=" icofont icofont-simple-down"></i></span>
+                              <span>Puspa <b>Kartika</b> <i class=" icofont icofont-simple-down"></i></span>
 
               </a>
                 <ul class="dropdown-menu settings-menu">
                   <li><a href="#!"><i class="icon-settings"></i> Settings</a></li>
-                  <li><a href="<?= base_url('index.php/profile/profile_admin');?>"><i class="icon-user"></i> Profile</a></li>
+                  <li><a href="profile.html"><i class="icon-user"></i> Profile</a></li>
                   <li><a href="message.html"><i class="icon-envelope-open"></i> My Messages</a></li>
                   <li class="p-0">
                                     <div class="dropdown-divider m-0"></div>
@@ -207,14 +200,14 @@
           <div class="user-panel">
             <div class="f-left image"><img src="<?= base_url();?>assets/images/avatar-6.png" alt="User Image" class="img-circle"></div>
             <div class="f-left info">
-              <p><?php echo $this->session->userdata("username") ?></p>
+              <p>Puspa Kartika</p>
               <p class="designation">Web Programmer <i class="icofont icofont-caret-down m-l-5"></i></p>
             </div>
           </div>
           <!-- sidebar profile Menu-->
           <ul class="nav sidebar-menu extra-profile-list">
             <li>
-   <a class="waves-effect waves-dark" href="<?= base_url('index.php/profile/profile_admin');?>">
+   <a class="waves-effect waves-dark" href="profile.html">
                      <i class="icon-user"></i>
                      <span class="menu-text">View Profile</span>
                      <span class="selected"></span>
@@ -247,18 +240,12 @@
                 <li class="nav-level">Components</li>
                 <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Artikel </span><i class="icon-arrow-down"></i></a>
                     <ul class="treeview-menu">
-                         <li><a class="waves-effect waves-dark" href="<?= base_url('index.php/artikel/alldata');?>"><i class="icon-arrow-right"></i>Lihat Data Artikel</a></li>
+                        <li><a class="waves-effect waves-dark" href="<?= base_url('index.php/artikel/alldata');?>"><i class="icon-arrow-right"></i>Lihat Data Artikel</a></li>
                         <li><a class="waves-effect waves-dark" href="<?= base_url('index.php/artikel/summernote');?>"><i class="icon-arrow-right"></i>Buat Artikel</a></li>
-                       <!--  <li><a class="waves-effect waves-dark" href="label-badge.html"><i class="icon-arrow-right"></i> Label Badge</a></li>
+                        <!-- <li><a class="waves-effect waves-dark" href="label-badge.html"><i class="icon-arrow-right"></i> Label Badge</a></li>
                         <li><a class="waves-effect waves-dark" href="bootstrap-ui.html"><i class="icon-arrow-right"></i> Grid system</a></li>
                         <li><a class="waves-effect waves-dark" href="box-shadow.html"><i class="icon-arrow-right"></i> Box Shadow</a></li>
-                        <li><a class="waves-effect waves-dark" href="color.html"><i class="icon-arrow-right"></i> Color</a></li>
-                        <li><a class="waves-effect waves-dark" href="light-box.html"><i class="icon-arrow-right"></i> Light Box</a></li>
-                        <li><a class="waves-effect waves-dark" href="notification.html"><i class="icon-arrow-right"></i> Notification</a></li>
-                        <li><a class="waves-effect waves-dark" href="panels-wells.html"><i class="icon-arrow-right"></i> Panels-Wells</a></li>
-                        <li><a class="waves-effect waves-dark" href="tabs.html"><i class="icon-arrow-right"></i> Tabs</a></li>
-                        <li><a class="waves-effect waves-dark" href="tooltips.html"><i class="icon-arrow-right"></i> Tooltips</a></li>
-                        <li><a class="waves-effect waves-dark" href="typography.html"><i class="icon-arrow-right"></i> Typography</a></li> -->
+                        <li><a class="waves-effect waves-dark" href="color.html"><i class="icon-arrow-right"></i> Color</a></li> -->
                     </ul>
                 </li>
 
@@ -522,7 +509,7 @@
         <div class="row">
             <div class="col-sm-12 p-0">
                 <div class="main-header">
-                    <h4>Halaman Melihat Data Artikel</h4>
+                    <h4>Halaman Mengubah Artikel</h4>
                     <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
                         <li class="breadcrumb-item"><a href="index.php/halaman_awal"><i class="icofont icofont-home"></i></a>
                         </li>
@@ -540,42 +527,32 @@
                         <div class="md-card-block">
                             <p class="m-b-20">
 
-         <form action="alldata" method="POST" enctype="multipart/form-data">
+         <form action="<?=base_url() ?>index.php/artikel/updateArtikelDb" method="POST" enctype="multipart/form-data">
             <body id="page-top" bgcolor="black">    
                     <div class="col-md-15 container dim-container" style="padding-bottom: 470px;" >
             <div id="edit" style="padding-bottom: 10px; display: block;">
             <div class="card">
-              <div class="card-header"> <h5> Lihat Data Artikel </h5> <i class="fa fa-bell fa-fw"></i> </div>
-                <div class="card-block">
+              <div class="card-header"> <h5> Ubah Artikel </h5> <i class="fa fa-bell fa-fw"></i> </div>
+                <div class="card-body">
                 <div class="row">
-                  <div class="col-sm-12 table-responsive">
-                     <table class="table">
-                  <thead> 
-                      <tr>
-                        <th class="text-center">Judul</th>
-                        <th class="text-center">Isi</th>
-                        <th class="text-center pro-pic">Gambar</th>
-                        <th class="text-center">Tanggal Upload</th>
-                        <th class="text-center">Aksi</th>
-                       </tr>
-                  </thead>
-                  <tbody>
-                  <?php foreach ($data_artikel as $data) { ?> 
-                  <tr>
-                  <td><?= $data->judul; ?></td>
-                  <td><?= $data->isi; ?></td>
-                  <td><img src="<?php echo base_url('assets/images/').$data->files;?>" width="150px"/></td>
-                  <td><?= $data->artikel_tanggal; ?></td>
-                  <td><a class="btn btn-success waves-effect waves-light m-r-20" href="<?=base_url() ?>index.php/artikel/updateDataArtikel/<?=$data->id_artikel; ?>">Edit</a>
-
-                   <a class="btn btn-danger waves-effect waves-light m-r-20" href="<?=base_url() ?>index.php/artikel/deleteDataArtikel/<?=$data->id_artikel; ?>">Hapus</a>
-                  </td>
-                  </tr>
-                  <?php } ?>
-            
-                </form>
-              </td>
-          </tr>
+                  <div class="col-md-2 text-center">
+                    <img src="<?= base_url();?>assets/images/avatar-6.png" width="150px" />
+                  </div>
+                  <div class="col-md-10">
+                      <?php foreach ($condition as $data) { ?>
+                  <div class="form-group">
+                  <b> Title : </b>
+                  <input type="text" class="form-control" value="<?php echo $data->judul; ?>" id="title" name="title">
+                    </div>
+                  
+                  <textarea class="form-control" rows="15" value="<?php echo $data->isi; ?>" name="artikel" id="summernote"></textarea>
+                  <br>
+                  <input type="file" value="<?php echo $data->files; ?>" name="file">
+              </div>
+            </div>
+            <center><button type="submit" class="btn btn-primary btn-lg">Submit</button></center>
+            <?php } ?>
+          </form>
                             <p class="m-b-20">
                             </p>
 

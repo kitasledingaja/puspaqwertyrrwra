@@ -30,7 +30,7 @@ Class m_artikel extends CI_Model
            return $query->num_rows();  
       }       
 
-      function get_all_data()  
+      function get_all_data()  //tampilkan semua data artikel di database
       {  
       $this->db->select('*');
       $this->db->from('artikel');
@@ -39,12 +39,12 @@ Class m_artikel extends CI_Model
       return array('data_artikel'=>$result); 
       }
 
-    function deleteArtikel($id_artikel){ // fungsi delete
+    function deleteArtikel($id_artikel){ // fungsi delete ke database
     $this->db->where('id_artikel', $id_artikel);
     $this->db->delete('artikel');
     }
 
-      function insert_all($table,$data) 
+      function insert_all($table,$data) //fungski masukin data ke database
       {
         $insert = $this->db->insert($table,$data);
         if($insert){
@@ -56,7 +56,7 @@ Class m_artikel extends CI_Model
         }
       }
 
-    function updateArtikel($data, $condition){
+    function updateArtikel($data, $condition){ // fungsi update data ke database
     $this->db->where($condition);
     $this->db->update('artikel', $data);
     }
