@@ -539,10 +539,10 @@
                     <img src="<?= base_url();?>assets/images/avatar-6.png" width="150px" />
                   </div>
                   <div class="col-md-10">
-                      <?php foreach ($condition as $data) { ?>
+                      <?php foreach ($data_artikel as $data) { ?>
                   <div class="form-group">
                   <b> Title : </b>
-                  <input type="text" class="form-control" value="<?php echo $data->judul; ?>" id="title" name="title">
+                  <input type="text" class="form-control" value="<?php echo $data; ?>" id="title" name="title">
                     </div>
                   
                   <textarea class="form-control" rows="15" value="<?php echo $data->isi; ?>" name="artikel" id="summernote"></textarea>

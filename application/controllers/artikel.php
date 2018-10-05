@@ -56,7 +56,7 @@ class artikel extends CI_Controller {
 
 function updateDataArtikel($id_artikel){ //fungsi update artikel
   $this->load->model('m_artikel');
-  $data['artikel'] = $this->m_artikel->get_all_data($id_artikel);
+  $data = $this->m_artikel->get_1_data($id_artikel);
   $this->load->view('v_artikel_update', $data);
 }
 

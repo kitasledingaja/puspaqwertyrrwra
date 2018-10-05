@@ -39,6 +39,16 @@ Class m_artikel extends CI_Model
       return array('data_artikel'=>$result); 
       }
 
+      function get_1_data($id)  //tampilkan semua data artikel di database
+      {  
+      $this->db->select('*');
+      $this->db->from('artikel');
+      $this->db->where('id_artikel', $id);
+      $query = $this->db->get();
+      $result = $query->result(); 
+      return array('data_artikel'=>$result); 
+      }
+
     function deleteArtikel($id_artikel){ // fungsi delete ke database
     $this->db->where('id_artikel', $id_artikel);
     $this->db->delete('artikel');
@@ -56,8 +66,8 @@ Class m_artikel extends CI_Model
         }
       }
 
-    function updateArtikel($data, $condition){ // fungsi update data ke database
-    $this->db->where($condition);
+    function updateArtikel($data){ // fungsi update data ke database
+    $this->db->where($data);
     $this->db->update('artikel', $data);
     }
   }
