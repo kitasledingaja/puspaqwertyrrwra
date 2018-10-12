@@ -25,7 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 <div class="container">
 			 <div class="header-left">
 			 	<div class="logo">
-					 <h1><a href="index.html">Float Indonesia</a></h>
+					 <img src="<?= base_url();?>assets/images/logo-login.png">
 			  </div>
 			  <div class="search">
 					<from>
@@ -38,7 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="nav1">
 						 <li class="active"><a href="<?= base_url(); ?>">Home</a></li>
 						 <li><a href="<?= base_url('index.php/reviews/review'); ?>">Reviews</a></li>
-						 <li><a href="<?= base_url('index.php/gallery/allgallery'); ?>">Gallery</a></li>
+						 <li><a href="<?= base_url('index.php/gallery_all/viewgallery'); ?>">Gallery</a></li>
 						 <li><a href="<?= base_url('index.php/about/aboutall'); ?>">About</a></li>
 						 <li><a href="<?= base_url('index.php/Login');?>">Login</a></li>
 				  </ul>
@@ -56,61 +56,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 </div>
 	 </div>
 </div>
-					<!-- /script-for-menu -->
-				 <!-- <div class="social">							
-						<a href="www.facebook.com/floatID"><i class="facebook"></i></a>
-						<a href="www.twitter.com/FloatIndonesia"><i class="twitter"></i></a>
-						<a href="www.youtube.com/channel/UCN6Qck3_tOH34WPcg0av0aA"><i class="pin"></i></a>	
-				 </div>
-				 <div class="search">
-					 <form>
-						 <input type="submit" value="">
-						 <input type="text" value="" placeholder="Search...">					 
-					 </form>
-				 </div>
-				 <div class="clearfix"></div>
-			 </div>
-			 <div class="headr-right">
-				 <div class="details">
-					 <ul>
-						 <li><a href="floatindonesia@gmail.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>floatindonesia@gmail.com</a></li>
-						 <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>0852-6403-0890</li>
-					 </ul>
-				 </div>
-			 </div>
-			 <div class="clearfix"></div> -->
-		 </div>
-	 </div>
-	 <!--banner-info-->	
-	 <!-- <div class="banner-info">
-		  <div class="container">
-			  <div class="logo">
-					 <h1><a href="index.html">Float Indonesia</a></h1>
-			  </div>
-			 <div class="top-menu">
-				 <span class="menu"></span>
-					<ul class="nav1">
-						 <li class="active"><a href="<?= base_url(); ?>">Home</a></li>
-						 <li><a href="<?= base_url('index.php/reviews/review'); ?>">Reviews</a></li>
-						 <li><a href="<?= base_url('index.php/gallery/allgallery'); ?>">Gallery</a></li>
-						 <li><a href="<?= base_url('index.php/about/aboutall'); ?>">About</a></li>
-						 <li><a href="<?= base_url('index.php/Login');?>">Login</a></li>
-				  </ul>
-			 </div>	
-	 <!-- script-for-menu
-						<script>
-							 $( "span.menu" ).click(function() {
-							$( "ul.nav1" ).slideToggle( 300, function() {
-							// Animation complete.
-								});
-								});
-						</script>
-					</script-for-menu
-			 
-			 <div class="clearfix"></div>
-		 </div>
-	 </div>
-</div> -->
+					
 <!-- banner -->
 	 <!-- Slider-starts-Here -->
 	 <script src="<?= base_url();?>assets/js/responsiveslides.min.js"></script>
@@ -228,13 +174,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- latest -->
 <!-- <div class="latest">
 	 <div class="container">
-		 <div class="latest-games"> -->
-			<!--  <h3>Latest Games</h3>
+		 <div class="latest-games">
+			<h3>Latest Games</h3>
 			 <span></span>
 		 </div>
 		 <div class="latest-top">				
 				<div class="col-md-5 trailer-text">
-					<?php  foreach ($data_artikel as $data) { ?>
+					<?php /*var_dump($data_artikel); exit();*/ foreach ($data_artikel as $data) { ?>
 				   <div class="sub-trailer">
 				       <div class="col-md-4 sub-img">
 							<img src="<?php echo base_url('assets/images/').$data->files;?>" width="150px"/>
@@ -252,7 +198,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 <div class="clearfix"> </div>
 			</div>
 	 </div>
-</div>              
+</div>               -->
 <!-- poster -->
 <div class="poster">
 	 <div class="container">

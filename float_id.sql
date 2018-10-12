@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01 Okt 2018 pada 04.39
+-- Generation Time: 24 Sep 2018 pada 11.47
 -- Versi Server: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -35,19 +35,15 @@ CREATE TABLE IF NOT EXISTS `artikel` (
   `artikel_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_artikel`),
   KEY `id_admin` (`id_admin`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data untuk tabel `artikel`
 --
 
 INSERT INTO `artikel` (`id_artikel`, `id_admin`, `judul`, `isi`, `files`, `artikel_tanggal`) VALUES
-(1, 1, 'Game Bisa Jadi', 'game yang memungkinkan anda untuk menebak kata yang hanya diberikan clue pada kepala partner.', 'v1.jpg', '2018-09-17 20:28:07'),
-(18, 1, 'testing', 'Gonggong adalah jenis siput yang hidup di Batam, Indonesia. Bahkan, ada banyak Gonggong mati karena ulah manusia dan kemudian manusia membuat Gonggong menjadi beberapa masakan lezat. Lalu, mengapa kita tidak mengucapkan "terima kasih" kepada Gonggong?\r\n\r\nAyo!!! Mari membantu Gonggong untuk mencapai nirwana.', 'v2.jpg', '2018-09-25 22:55:08'),
-(19, 1, 'jumping animal', '<p>ssssssssssssff<br></p>', 'v3.jpg', '2018-09-25 22:56:21'),
-(20, 1, NULL, NULL, NULL, '2018-09-26 12:09:27'),
-(21, 1, NULL, NULL, NULL, '2018-09-26 12:33:09'),
-(22, 1, NULL, NULL, NULL, '2018-09-26 21:54:29');
+(1, 1, 'Game Bisa Jadi', 'game yang memungkinkan anda untuk menebak kata yang hanya diberikan clue pada kepala partner.', 'a1.jpg', '2018-09-17 20:28:07'),
+(15, 1, 'testing', '<p>ff<br></p>', NULL, '2018-09-18 05:18:30');
 
 -- --------------------------------------------------------
 
@@ -134,7 +130,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id_admin`, `username`, `email`, `password`, `hak_akses`) VALUES
-(0, 'trala', 'trala@gmail.com', '12334', 0),
 (1, 'admin_float', 'admin_float@gmail.com', '123456', 0);
 
 -- --------------------------------------------------------

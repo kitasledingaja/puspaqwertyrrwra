@@ -238,14 +238,26 @@
                     </a>                
                 </li>
                 <li class="nav-level">Components</li>
-                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Artikel </span><i class="icon-arrow-down"></i></a>
+                 <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Kelola Artikel</span><i class="icon-arrow-down"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/artikel/summernote"><i class="icon-arrow-right"></i>Buat Artikel</a></li>
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/marchandise/datamerchandise"><i class="icon-arrow-right"></i>Buat Merchandise</a></li>
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/gallery/allgallery"><i class="icon-arrow-right"></i>Tambah Gallery</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-eye"></i><span> Lihat Data</span><i class="icon-arrow-down"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/artikel/alldata"><i class="icon-arrow-right"></i>Lihat Data Artikel</a></li>
+                             <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/"><i class="icon-arrow-right"></i>Lihat Data Merchandise</a></li>
+                             <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/gallery/alldata_gallery_admin"><i class="icon-arrow-right"></i>Lihat Data Gallery</a></li>
+                        </ul>
+                    </li>
+
+                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-chart"></i><span> Charts &amp; Maps</span><span class="label label-success menu-caption">New</span><i class="icon-arrow-down"></i></a>
                     <ul class="treeview-menu">
-                        <li><a class="waves-effect waves-dark" href="<?= base_url('index.php/artikel/alldata');?>"><i class="icon-arrow-right"></i>Lihat Data Artikel</a></li>
-                        <li><a class="waves-effect waves-dark" href="<?= base_url('index.php/artikel/summernote');?>"><i class="icon-arrow-right"></i>Buat Artikel</a></li>
-                        <!-- <li><a class="waves-effect waves-dark" href="label-badge.html"><i class="icon-arrow-right"></i> Label Badge</a></li>
-                        <li><a class="waves-effect waves-dark" href="bootstrap-ui.html"><i class="icon-arrow-right"></i> Grid system</a></li>
-                        <li><a class="waves-effect waves-dark" href="box-shadow.html"><i class="icon-arrow-right"></i> Box Shadow</a></li>
-                        <li><a class="waves-effect waves-dark" href="color.html"><i class="icon-arrow-right"></i> Color</a></li> -->
+                        <li><a class="waves-effect waves-dark" href="float-chart.html"><i class="icon-arrow-right"></i> Float Charts</a></li>
+                        <li><a class="waves-effect waves-dark" href="morris-chart.html"><i class="icon-arrow-right"></i> Morris Charts</a></li>
                     </ul>
                 </li>
 
@@ -527,7 +539,7 @@
                         <div class="md-card-block">
                             <p class="m-b-20">
 
-         <form action="<?=base_url() ?>index.php/artikel/updateArtikelDb" method="POST" enctype="multipart/form-data">
+         <form action="<?=base_url() ?>index.php/artikel/updateArtikelDb" id="updateForm" method="POST" enctype="multipart/form-data">
             <body id="page-top" bgcolor="black">    
                     <div class="col-md-15 container dim-container" style="padding-bottom: 470px;" >
             <div id="edit" style="padding-bottom: 10px; display: block;">
@@ -539,18 +551,20 @@
                     <img src="<?= base_url();?>assets/images/avatar-6.png" width="150px" />
                   </div>
                   <div class="col-md-10">
-                      <?php foreach ($data_artikel as $data) { ?>
+                      <?php foreach ($artikel as $data) { ?>
                   <div class="form-group">
                   <b> Title : </b>
                   <input type="text" class="form-control" value="<?php echo $data->judul; ?>" id="title" name="title">
                     </div>
                   
-                  <textarea class="form-control" rows="15" value="" name="artikel" id="summernote"> <?php echo $data->isi; ?></textarea>
+                  <textarea type="text" class="form-control" rows="15" id="summernote" name="artikel" value=<?=form_textarea('artikel', "$data->isi", 'form-control')?></textarea>
+
                   <br>
-                  <input type="file" value="<?php echo $data->files; ?>" name="file">
+                  <input type="file" id="file" name="file" value=<?=form_upload('file', "$data->files", 'form-control')?>
+                  <input type="hidden" name="id_artikel" value="<?php echo $data->id_artikel; ?>">
               </div>
             </div>
-            <center><button type="submit" class="btn btn-primary btn-lg">Submit</button></center>
+            <center><button type="submit" value="update" class="btn btn-primary btn-lg">Update</button></center>
             <?php } ?>
           </form>
                             <p class="m-b-20">
@@ -566,50 +580,6 @@
      </div>
 </div>
 
-
-<!-- Warning Section Starts -->
-<!-- Older IE warning message -->
-<!--[if lt IE 9]>
-<div class="ie-warning">
-    <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-    <div class="iew-container">
-        <ul class="iew-download">
-            <li>
-                <a href="http://www.google.com/chrome/">
-                    <img src="assets/images/browser/chrome.png" alt="Chrome">
-                    <div>Chrome</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="assets/images/browser/firefox.png" alt="Firefox">
-                    <div>Firefox</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.opera.com">
-                    <img src="assets/images/browser/opera.png" alt="Opera">
-                    <div>Opera</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.apple.com/safari/">
-                    <img src="assets/images/browser/safari.png" alt="Safari">
-                    <div>Safari</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="assets/images/browser/ie.png" alt="">
-                    <div>IE (9 & above)</div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <p>Sorry for the inconvenience!</p>
-</div>
-<![endif]-->
 <!-- Warning Section Ends -->
 <script src="<?= base_url();?>assets/summernote/bootstrap.min.js"></script>
 

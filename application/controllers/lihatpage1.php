@@ -10,7 +10,9 @@
          $this->load->model('m_lihatpage1');
      }
 
-	public function lihatisipage() {
-     $this->load->view('v_lihatpage1'); 
+	public function lihatisipage($id_artikel) {
+		//$id_artikel=($this->uri->segment(3))?$this->uri->segment(3):0;
+		$data_artikel = $this->m_lihatpage1->getDataArtikel($id_artikel);
+ 		$this->load->view('v_lihatpage1',$data_artikel);
  }
 }

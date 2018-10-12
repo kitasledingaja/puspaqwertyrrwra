@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Buat Artikel | Float Indonesia</title>
-
-    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <title>Lihat Artikel | Float Indonesia</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -25,7 +18,15 @@
     <script type="text/javascript" src="<?= base_url();?>assets/summernote/jquery-3.3.1.js"></script>
     <!-- <link href="<?= base_url();?>assets/summernote/bootstrap.css" rel="stylesheet"> -->
 
-             
+    <!-- MetisMenu CSS -->
+    <link href="<?= base_url();?>assets/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="<?= base_url();?>assets/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="<?= base_url();?>assets/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+
     <!-- include summernote css/js -->
     <link href="<?= base_url();?>assets/summernote/summernote-bs4.css" rel="stylesheet">
     <script src="<?= base_url();?>assets/summernote/summernote-bs4.js"></script>
@@ -245,22 +246,21 @@
                     </a>                
                 </li>
                 <li class="nav-level">Components</li>
-                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Artikel </span><i class="icon-arrow-down"></i></a>
-                    <ul class="treeview-menu">
-                         <li><a class="waves-effect waves-dark" href="<?= base_url('index.php/artikel/alldata');?>"><i class="icon-arrow-right"></i>Lihat Data Artikel</a></li>
-                        <li><a class="waves-effect waves-dark" href="<?= base_url('index.php/artikel/summernote');?>"><i class="icon-arrow-right"></i>Buat Artikel</a></li>
-                       <!--  <li><a class="waves-effect waves-dark" href="label-badge.html"><i class="icon-arrow-right"></i> Label Badge</a></li>
-                        <li><a class="waves-effect waves-dark" href="bootstrap-ui.html"><i class="icon-arrow-right"></i> Grid system</a></li>
-                        <li><a class="waves-effect waves-dark" href="box-shadow.html"><i class="icon-arrow-right"></i> Box Shadow</a></li>
-                        <li><a class="waves-effect waves-dark" href="color.html"><i class="icon-arrow-right"></i> Color</a></li>
-                        <li><a class="waves-effect waves-dark" href="light-box.html"><i class="icon-arrow-right"></i> Light Box</a></li>
-                        <li><a class="waves-effect waves-dark" href="notification.html"><i class="icon-arrow-right"></i> Notification</a></li>
-                        <li><a class="waves-effect waves-dark" href="panels-wells.html"><i class="icon-arrow-right"></i> Panels-Wells</a></li>
-                        <li><a class="waves-effect waves-dark" href="tabs.html"><i class="icon-arrow-right"></i> Tabs</a></li>
-                        <li><a class="waves-effect waves-dark" href="tooltips.html"><i class="icon-arrow-right"></i> Tooltips</a></li>
-                        <li><a class="waves-effect waves-dark" href="typography.html"><i class="icon-arrow-right"></i> Typography</a></li> -->
-                    </ul>
-                </li>
+                 <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Kelola Artikel</span><i class="icon-arrow-down"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/artikel/summernote"><i class="icon-arrow-right"></i>Buat Artikel</a></li>
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/marchandise/datamerchandise"><i class="icon-arrow-right"></i>Buat Merchandise</a></li>
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/gallery/allgallery"><i class="icon-arrow-right"></i>Tambah Gallery</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-eye"></i><span> Lihat Data</span><i class="icon-arrow-down"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/artikel/alldata"><i class="icon-arrow-right"></i>Lihat Data Artikel</a></li>
+                             <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/"><i class="icon-arrow-right"></i>Lihat Data Merchandise</a></li>
+                             <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/gallery/alldata_gallery_admin"><i class="icon-arrow-right"></i>Lihat Data Gallery</a></li>
+                        </ul>
+                    </li>
 
                 <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-chart"></i><span> Charts &amp; Maps</span><span class="label label-success menu-caption">New</span><i class="icon-arrow-down"></i></a>
                     <ul class="treeview-menu">
@@ -526,7 +526,7 @@
                     <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
                         <li class="breadcrumb-item"><a href="index.php/halaman_awal"><i class="icofont icofont-home"></i></a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Pages</a>
+                        <li class="breadcrumb-item"><a href="<?php echo base_url()?>index.php/artikel/summernote">Buat Artikel</a>
                         </li>
                     </ol>
                 </div>
@@ -550,13 +550,17 @@
                 <div class="row">
                   <div class="col-sm-12 table-responsive">
                      <table class="table">
+                      <div class="panel-body">
+                       <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                   <thead> 
                       <tr>
                         <th class="text-center">Judul</th>
                         <th class="text-center">Isi</th>
                         <th class="text-center pro-pic">Gambar</th>
                         <th class="text-center">Tanggal Upload</th>
-                        <th class="text-center">Aksi</th>
+                        <th class="text-center">Lihat</th>
+                        <th class="text-center">Edit</th>
+                        <th class="text-center">Hapus</th>
                        </tr>
                   </thead>
                   <tbody>
@@ -565,10 +569,13 @@
                   <td><?= $data->judul; ?></td>
                   <td><?= $data->isi; ?></td>
                   <td><img src="<?php echo base_url('assets/images/').$data->files;?>" width="150px"/></td>
-                  <td><?= $data->artikel_tanggal; ?></td>
-                  <td><a class="btn btn-success waves-effect waves-light m-r-20" href="<?=base_url() ?>index.php/artikel/updateDataArtikel/<?=$data->id_artikel; ?>">Edit</a>
+                  <td class="text-center"><?= $data->artikel_tanggal; ?></td>
+                  <td class="text-center">
+                    <a class="btn btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Lihat" href="<?= base_url('index.php/reviews/review'); ?>"><i class="icofont icofont-eye-alt"></i></a>
 
-                   <a class="btn btn-danger waves-effect waves-light m-r-20" href="<?=base_url() ?>index.php/artikel/deleteDataArtikel/<?=$data->id_artikel; ?>">Hapus</a>
+                  <td class="text-center"><a class="btn btn-success waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Edit" href="<?=base_url() ?>index.php/artikel/updateDataArtikel/<?=$data->id_artikel; ?>"><i class="icofont icofont-ui-edit"></i></a>
+                  
+                 <td class="text-center"><a class="btn btn-danger waves-effect waves-light" data-toggle="tooltip" data-placement="top" title="Hapus" href="<?=base_url() ?>index.php/artikel/deleteDataArtikel/<?=$data->id_artikel; ?>"><i class="icofont icofont-ui-delete"></i></a></td>
                   </td>
                   </tr>
                   <?php } ?>
@@ -589,50 +596,14 @@
      </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+    </script>
 
-<!-- Warning Section Starts -->
-<!-- Older IE warning message -->
-<!--[if lt IE 9]>
-<div class="ie-warning">
-    <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-    <div class="iew-container">
-        <ul class="iew-download">
-            <li>
-                <a href="http://www.google.com/chrome/">
-                    <img src="assets/images/browser/chrome.png" alt="Chrome">
-                    <div>Chrome</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="assets/images/browser/firefox.png" alt="Firefox">
-                    <div>Firefox</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.opera.com">
-                    <img src="assets/images/browser/opera.png" alt="Opera">
-                    <div>Opera</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.apple.com/safari/">
-                    <img src="assets/images/browser/safari.png" alt="Safari">
-                    <div>Safari</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="assets/images/browser/ie.png" alt="">
-                    <div>IE (9 & above)</div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <p>Sorry for the inconvenience!</p>
-</div>
-<![endif]-->
 <!-- Warning Section Ends -->
 <script src="<?= base_url();?>assets/summernote/bootstrap.min.js"></script>
 
@@ -650,6 +621,14 @@
 <script src="<?= base_url();?>assets/plugins/tether/dist/js/tether.min.js"></script>
 <!-- Required Fremwork -->
 <script src="<?= base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="<?= base_url();?>assets/metisMenu/metisMenu.min.js"></script>
+
+<!-- DataTables JavaScript -->
+<script src="<?= base_url();?>assets/datatables/js/jquery.dataTables.min.js"></script>
+<script src="<?= base_url();?>assets/datatables-plugins/dataTables.bootstrap.min.js"></script>
+<script src="<?= base_url();?>assets/datatables-responsive/dataTables.responsive.js"></script>
 
 <!-- waves effects.js -->
 <script src="<?= base_url();?>assets/plugins/Waves/waves.min.js"></script>

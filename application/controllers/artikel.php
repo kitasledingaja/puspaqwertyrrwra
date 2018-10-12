@@ -55,15 +55,13 @@ class artikel extends CI_Controller {
 }
 
 function updateDataArtikel($id_artikel){ //fungsi update artikel
-  $this->load->model('m_artikel');
-  $data = $this->m_artikel->get_1_data($id_artikel);
+  $where=array('id_artikel'=>$id_artikel);
+  $data['artikel'] = $this->m_artikel->ambil_update($where,'artikel')->result();
   $this->load->view('v_artikel_update', $data);
 }
 
-function updatetArtikelDb() //update ke database
+function updateArtikelDb() //view update
 {
-$this->load->model('m_artikel');
-    
     $config['upload_path'] = './assets/images/'; //upload file 
     $config['allowed_types'] = 'jpg|jpeg|png|gif|bmp';
     $config['encrypt_name'] = TRUE;
@@ -76,17 +74,23 @@ $this->load->model('m_artikel');
         $file="";
       }else{
         $file=$this->upload->file_name;
-      }     
+      }
+
+     $id_artikel = $this->input->post('id_artikel');
+     $id_admin   = $this->session->userdata('id_admin');
+     $title      = $this->input->post('title');
+     $artikel    = $this->input->post('artikel');
+     $file       = $file;
+
 
   $data = array(
-     'id_admin'   => $this->session->userdata('id_admin'),
-     'judul'      => $this->input->post('title'),
-     'isi'        => $this->input->post('artikel'),
-     'files'      => $file    
+     'judul' => $title,
+     'isi'   => $artikel,
+     'files' => $file
     );
-  
-$condition['id_artikel'] = $this->input->post('id_artikel'); //test coba diubah, ditandai nanti lupa
-$this->m_artikel->updateArtikel($data, $condition); 
+
+$where=array('id_artikel'=> $id_artikel);
+$this->m_artikel->updateArtikel($where, $data,'artikel'); 
 redirect('artikel/alldata');
 }
 

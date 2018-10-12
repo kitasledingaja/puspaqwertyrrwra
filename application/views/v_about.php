@@ -25,14 +25,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 <div class="container">
 			 <div class="header-left">
 			 	<div class="logo">
-					 <h1><a href="index.html">Float Indonesia</a></h>
+					 <h1><img src="<?= base_url();?>assets/images/logo-login.png"></h>
 			  </div>
 			 <div class="top-menu">
 				 <span class="menu"></span>
 					<ul class="nav1">
 						 <li class="active"><a href="<?= base_url(); ?>">Home</a></li>
 						 <li><a href="<?= base_url('index.php/reviews/review'); ?>">Reviews</a></li>
-						 <li><a href="<?= base_url('index.php/gallery/allgallery'); ?>">Gallery</a></li>
+						 <li><a href="<?= base_url('index.php/gallery_all/viewgallery'); ?>">Gallery</a></li>
 						 <li><a href="<?= base_url('index.php/about/aboutall'); ?>">About</a></li>
 						 <li><a href="<?= base_url('index.php/Login');?>">Login</a></li>
 				  </ul>
@@ -49,11 +49,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 		 </div>
 	 </div>
-</div>
-<!-- banner -->
-<div class="banner">		  			
-		<div class="bnr2">						  
-	   </div>			 
 </div>
 <!-- About -->
 <div class="about">

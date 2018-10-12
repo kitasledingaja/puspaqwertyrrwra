@@ -25,7 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 <div class="container">
 			 <div class="header-left">
 			 	<div class="logo">
-					 <h1><a href="index.html">Float Indonesia</a></h>
+					 <h1><img src="<?= base_url();?>assets/images/logo-login.png"></h>
 			  </div>
 			  <div class="search">
 					<from>
@@ -38,7 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="nav1">
 						 <li class="active"><a href="<?= base_url(); ?>">Home</a></li>
 						 <li><a href="<?= base_url('index.php/reviews/review'); ?>">Reviews</a></li>
-						 <li><a href="<?= base_url('index.php/gallery/allgallery'); ?>">Gallery</a></li>
+						 <li><a href="<?= base_url('index.php/gallery_all/viewgallery'); ?>">Gallery</a></li>
 						 <li><a href="<?= base_url('index.php/about/aboutall'); ?>">About</a></li>
 						 <li><a href="<?= base_url('index.php/Login');?>">Login</a></li>
 				  </ul>
@@ -56,85 +56,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 </div>
 	 </div>
 </div>
-<!-- banner -->
-<div class="banner">		  			
-		<div class="bnr2">						  
-	   </div>			 
-</div>
 <!-- content -->
 <div class="review">
 	 <div class="container">
+	 		<?php
+				function limit_words($string, $word_limit){
+                $words = explode(" ",$string);
+                return implode(" ",array_splice($words,0,$word_limit));
+            	}
+            ?>
 		 <h2 >Reviews</h2>
 		 <div class="review-md1">
+		 	 <?php foreach ($data_artikel as $data) { ?> 
 				 <div class="col-md-4 sed-md">
 				 	 <div class=" col-1">
-						 <a href="<?= base_url('index.php/lihatpage1/lihatisipage');?>"><img class="img-responsive" src="<?= base_url();?>assets/images/re7.jpg" alt=""></a>
-					 	<h4><a href="<?= base_url('index.php/lihatpage1/lihatisipage');?>">Game Bisa Jadi</a></h4>
-						<p>Game ini adalah game yang memungkinkan anda untuk menebak kata yang hanya diberikan clue</p>
+						 <a href="<?= base_url('index.php/lihatpage1/lihatisipage/'.$data->id_artikel);?>"><img class="img-responsive" src="<?php echo base_url('assets/images/').$data->files;?>" width="400px" alt=""></a>
+					 	<h4><a href="<?= base_url('index.php/lihatpage1/lihatisipage/'.$data->id_artikel);?>"><?= $data->judul; ?></a></h4>
+						<p><?php echo limit_words($data->isi,20);?></p>
 					 </div>
 				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="<?= base_url();?>assets/images/re1.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="<?= base_url();?>assets/images/re2.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				 <div class="clearfix"> </div>
-		 <!-- </div>
-		 <div class="review-md1">
-				 <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="<?= base_url();?>assets/images/re3.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="<?= base_url();?>assets/images/re4.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="<?= base_url();?>assets/images/re5.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				 <div class="clearfix"> </div>
-		 </div>
-		 <div class="review-md1">
-				 <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="<?= base_url();?>assets/images/re6.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="<?= base_url();?>assets/images/re7.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="<?= base_url();?>assets/images/re2.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div> -->
-				 </div>
+				
+		 <?php } ?>
 				<div class="clearfix"> </div>
 		 </div>
 	 </div>

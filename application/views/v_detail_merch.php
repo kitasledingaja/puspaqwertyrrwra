@@ -25,7 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 <div class="container">
 			 <div class="header-left">
 			 	<div class="logo">
-					 <h1><a href="index.html">Float Indonesia</a></h>
+					 <h1><img src="<?= base_url();?>assets/images/logo-login.png"></h1>
 			  </div>
 			  <div class="search">
 					<from>
@@ -55,11 +55,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"></div>
 		 </div>
 	 </div>
-</div>
-<!-- banner -->
-<div class="banner">		  			
-		<div class="bnr2">						  
-	   </div>			 
 </div>
 <!-- content -->
 <div class="review">

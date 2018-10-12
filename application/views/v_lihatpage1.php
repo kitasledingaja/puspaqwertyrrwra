@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Bisa Jadi | Float Indonesia</title>
+<title>Float Indonesia</title>
 <link href="<?= base_url();?>assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary JavaScript plugins) -->
 <script src="<?= base_url();?>assets/js/bootstrap.js"></script>
@@ -20,96 +20,68 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <!-- header -->
-<div class="header">
-	 <div class="container">
-		 <div class="headr-left">
-			 <div class="social">							
-					<a href="#"><i class="facebook"></i></a>
-					<a href="#"><i class="twitter"></i></a>
-					<a href="#"><i class="gplus"></i></a>	
-					<a href="#"><i class="pin"></i></a>	
-					<a href="#"><i class="youtube"></i></a>	
-			 </div>
-			 <div class="search">
-				 <form>
-					 <input type="submit" value="">
-					 <input type="text" value="" placeholder="Search...">					 
-				 </form>
-			 </div>
-			 <div class="clearfix"></div>
+<div class="top-banner">
+	 <div class="header">
+		 <div class="container">
+			 <div class="header-left">
+			 	<div class="logo">
+					 <h1><img src="<?= base_url();?>assets/images/logo-login.png"></h1>
+			  </div>
+			  <div class="search">
+					<from>
+						 <input type="submit" value="">
+						 <input type="text" value="" placeholder="Search...">					 
+					 </from>
+					</div>
+			 <div class="top-menu">
+				 <span class="menu"></span>
+					<ul class="nav1">
+						 <li class="active"><a href="<?= base_url(); ?>">Home</a></li>
+						 <li><a href="<?= base_url('index.php/reviews/review'); ?>">Reviews</a></li>
+						 <li><a href="<?= base_url('index.php/gallery/allgallery'); ?>">Gallery</a></li>
+						 <li><a href="<?= base_url('index.php/about/aboutall'); ?>">About</a></li>
+						 <li><a href="<?= base_url('index.php/Login');?>">Login</a></li>
+				  </ul>
+			 </div>	
+	 <!-- script-for-menu -->
+						<script>
+							 $( "span.menu" ).click(function() {
+							$( "ul.nav1" ).slideToggle( 300, function() {
+							// Animation complete.
+								});
+								});
+						</script>
+
+				<div class="clearfix"></div>
 		 </div>
-		 <div class="headr-right">
-			 <div class="details">
-				 <ul>
-					  <li><a href="mailto@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>floatindonesia@gmail.com</a></li>
-					 <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>0852-6403-0890</li>
-				 </ul>
-			 </div>
-		 </div>
-		 <div class="clearfix"></div>
 	 </div>
-</div>
-<!--banner-info-->	
-<div class="banner-info">
-	  <div class="container">
-		  <div class="logo">
-				 <h1><a href="index.html">Float Indonesia</a></h1>
-		  </div>
-		 <div class="top-menu">
-		     <span class="menu"></span>
-			  <ul class="nav1">
-					<li class="active"><a href="<?= base_url(); ?>">Home</a></li>
-					 <li><a href="<?= base_url('index.php/reviews/review'); ?>">Reviews</a></li>
-					 <li><a href="<?= base_url('index.php/gallery/allgallery'); ?>">Gallery</a></li>
-					 <li><a href="<?= base_url('index.php/about/aboutall'); ?>">About</a></li>
-				     <li><a href="<?= base_url('index.php/Login');?>">Login</a></li>
-			  </ul>
-		 </div>	
-<!-- script-for-menu -->
-					<script>
-						 $( "span.menu" ).click(function() {
-						$( "ul.nav1" ).slideToggle( 300, function() {
-						// Animation complete.
-							});
-							});
-					</script>
-				<!-- /script-for-menu -->		 
-		 <div class="clearfix"></div>
-	 </div>
-</div>
-<!-- banner -->
-<div class="banner">		  			
-		<div class="bnr2">						  
-	   </div>			 
 </div>
 <!---->
 <div class="blog">
 		<div class="container">
 			<div class="col-md-7 blog-left" >
 				<div class="blog-info">
+					<?php foreach ($data_artikel as $data) { ?>
 					<div class="blog-info-text">
 						<div class="blog-img">
 							<div class="latest-games">
-							<h3>Game Bisa Jadi</h3>
+							<h3><?= $data->judul; ?></h3>
 						</div>
-							<img src="<?= base_url();?>assets/images/re7.jpg" alt=""/>
+							<img src="<?php echo base_url('assets/images/').$data->files;?>" width="100px"/>
 						</div>						
-						<p class="snglp">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor If you are going to use a passage of Lorem Ipsum,
-							you need to be sure there isn't anything embarrassing hidden in the middle of text. 
-							There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration  
-							in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,
-							you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+						<p class="snglp"><?= $data->isi; ?></p>
 						<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration  
 						in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,
 						you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>						
 					</div>
 					<div class="comment-icons">
 						<ul>
-							<li><span></span><a href="#">Lorem ipsum dolor sit</a> </li>
-							<li><span class="clndr"></span>MARCH 1, 2013</li>
-							<li><span class="admin"></span> <a href="#">Admin</a></li>
+							<li><span></span><a href="#"><?= $data->judul; ?></a> </li>
+							<li><span class="clndr"></span><?= $data->artikel_tanggal; ?></li>
+							<li><span class="admin"></span>Admin</a></li>
 						</ul>
 					</div>
+					<?php } ?>
 					<div class="response">
 						<div class="media response-info">
 							<div class="media-left response-text-left">

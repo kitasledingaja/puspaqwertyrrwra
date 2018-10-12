@@ -66,7 +66,7 @@
 						<?php echo form_open('login/aksi_login'); ?>
 						<div class="md-input-wrapper">
 							<input type="text" name="username" class="md-form-control md-valid" required=""/>
-							<label>Email</label>
+							<label>Username</label>
 						</div>
 						<div class="md-input-wrapper">
 							<input type="password" name="password" class="md-form-control md-valid" required=""/>

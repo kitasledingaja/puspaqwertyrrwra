@@ -3,13 +3,6 @@
 <head>
     <title>Buat Artikel | Float Indonesia</title>
 
-    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -24,7 +17,6 @@
 
     <script type="text/javascript" src="<?= base_url();?>assets/summernote/jquery-3.3.1.js"></script>
     <!-- <link href="<?= base_url();?>assets/summernote/bootstrap.css" rel="stylesheet"> -->
-
              
     <!-- include summernote css/js -->
     <link href="<?= base_url();?>assets/summernote/summernote-bs4.css" rel="stylesheet">
@@ -131,12 +123,12 @@
               <li class="dropdown">
                 <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
                               <span><img class="img-circle " src="<?= base_url();?>assets/images/avatar-6.png" style="width:40px;" alt="User Image"></span>
-                              <span>Puspa <b>Kartika</b> <i class=" icofont icofont-simple-down"></i></span>
+                              <span><b><?php echo $this->session->userdata("username") ?></b> <i class=" icofont icofont-simple-down"></i></span>
 
               </a>
                 <ul class="dropdown-menu settings-menu">
                   <li><a href="#!"><i class="icon-settings"></i> Settings</a></li>
-                  <li><a href="profile.html"><i class="icon-user"></i> Profile</a></li>
+                  <li><a href="<?= base_url('index.php/profile/profile_admin');?>"><i class="icon-user"></i> Profile</a></li>
                   <li><a href="message.html"><i class="icon-envelope-open"></i> My Messages</a></li>
                   <li class="p-0">
                                     <div class="dropdown-divider m-0"></div>
@@ -207,15 +199,15 @@
           <div class="user-panel">
             <div class="f-left image"><img src="<?= base_url();?>assets/images/avatar-6.png" alt="User Image" class="img-circle"></div>
             <div class="f-left info">
-              <p>Puspa Kartika</p>
+              <p><?php echo $this->session->userdata("username") ?></p>
               <p class="designation">Web Programmer <i class="icofont icofont-caret-down m-l-5"></i></p>
             </div>
           </div>
           <!-- sidebar profile Menu-->
           <ul class="nav sidebar-menu extra-profile-list">
             <li>
-   <a class="waves-effect waves-dark" href="profile.html">
-                     <i class="icon-user"></i>
+   <a class="waves-effect waves-dark" href="<?= base_url('index.php/profile/profile_admin');?>">
+                      <i class="icon-user"></i>
                      <span class="menu-text">View Profile</span>
                      <span class="selected"></span>
                  </a>
@@ -245,16 +237,21 @@
                     </a>                
                 </li>
                 <li class="nav-level">Components</li>
-                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Artikel </span><i class="icon-arrow-down"></i></a>
-                    <ul class="treeview-menu">
-                        <li><a class="waves-effect waves-dark" href="<?= base_url('index.php');?>"><i class="icon-arrow-right"></i>Lihat Data Artikel</a></li>
-                        <li><a class="waves-effect waves-dark" href="<?= base_url('index.php/artikel/summernote');?>"><i class="icon-arrow-right"></i>Buat Artikel</a></li>
-                        <!-- <li><a class="waves-effect waves-dark" href="label-badge.html"><i class="icon-arrow-right"></i> Label Badge</a></li>
-                        <li><a class="waves-effect waves-dark" href="bootstrap-ui.html"><i class="icon-arrow-right"></i> Grid system</a></li>
-                        <li><a class="waves-effect waves-dark" href="box-shadow.html"><i class="icon-arrow-right"></i> Box Shadow</a></li>
-                        <li><a class="waves-effect waves-dark" href="color.html"><i class="icon-arrow-right"></i> Color</a></li> -->
-                    </ul>
-                </li>
+                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Kelola Artikel</span><i class="icon-arrow-down"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/artikel/summernote"><i class="icon-arrow-right"></i>Buat Artikel</a></li>
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/marchandise/datamerchandise"><i class="icon-arrow-right"></i>Buat Merchandise</a></li>
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/gallery/allgallery"><i class="icon-arrow-right"></i>Tambah Gallery</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-eye"></i><span> Lihat Data</span><i class="icon-arrow-down"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/artikel/alldata"><i class="icon-arrow-right"></i>Lihat Data Artikel</a></li>
+                             <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/"><i class="icon-arrow-right"></i>Lihat Data Merchandise</a></li>
+                             <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/gallery/alldata_gallery_admin"><i class="icon-arrow-right"></i>Lihat Data Gallery</a></li>
+                        </ul>
+                    </li>
 
                 <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-chart"></i><span> Charts &amp; Maps</span><span class="label label-success menu-caption">New</span><i class="icon-arrow-down"></i></a>
                     <ul class="treeview-menu">
@@ -517,12 +514,6 @@
             <div class="col-sm-12 p-0">
                 <div class="main-header">
                     <h4>Halaman Membuat Artikel</h4>
-                    <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
-                        <li class="breadcrumb-item"><a href="index.php/halaman_awal"><i class="icofont icofont-home"></i></a>
-                        </li>
-                        <li class="breadcrumb-item"><a href="#!">Pages</a>
-                        </li>
-                    </ol>
                 </div>
             </div>
         </div>
@@ -545,20 +536,16 @@
                   <div class="col-md-2 text-center">
                     <img src="<?= base_url();?>assets/images/avatar-6.png" width="150px" />
                   </div>
-                  <div class="col-md-10">
+                  <div class="col-md-9">
 
                   <div class="form-group">
                   <b> Title : </b>
-                  <input type="text" class="form-control" id="title" name="title">
+                  <input type="text" class="form-control" id="title" name="title" required>
                     </div>
                   
                   <textarea class="form-control" rows="15" name="artikel" id="summernote"></textarea>
                   <br>
-                   <div class="col-md-9">
-                   <label for="file" class="custom-file">
-                   <input type="file" id="file" class="custom-file-input">
-                   <span class="custom-file-control"></span>
-                  </div>
+                   <input type="file" name="file" required>
               </div>
               </div>
             </div>

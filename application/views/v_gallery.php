@@ -26,7 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 <div class="container">
 			 <div class="header-left">
 			 	<div class="logo">
-					 <h1><a href="index.html">Float Indonesia</a></h>
+					 <h1><img src="<?= base_url();?>assets/images/logo-login.png"></a></h1>
 			  </div>
 					
 			 <div class="top-menu">
@@ -34,7 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="nav1">
 						 <li class="active"><a href="<?= base_url(); ?>">Home</a></li>
 						 <li><a href="<?= base_url('index.php/reviews/review'); ?>">Reviews</a></li>
-						 <li><a href="<?= base_url('index.php/gallery/allgallery'); ?>">Gallery</a></li>
+						 <li><a href="<?= base_url('index.php/gallery_all/viewgallery'); ?>">Gallery</a></li>
 						 <li><a href="<?= base_url('index.php/about/aboutall'); ?>">About</a></li>
 						 <li><a href="<?= base_url('index.php/Login');?>">Login</a></li>
 				  </ul>
@@ -52,59 +52,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 </div>
 	 </div>
 </div>
-<!-- banner -->
-<div class="banner">		  			
-		<div class="bnr2">						  
-	   </div>			 
-</div>
 <!----> 
 <div class="gallery">
 		<div class="container">
 			<h2>Gallery</h2>
 			<div class="gallery-bottom">
 				<div class="gallery-1">
+					<?php foreach ($data_gallery as $data) { ?>
 					<div class="col-md-4 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/v1.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="<?= base_url();?>assets/images/v1.jpg" alt=""/></a>
+						<div class=" col-1">
+						<a class="example-image-link" href="#" data-lightbox="example-set" data-title="Click the right half of the image to move forward"><img class="example-image" src="<?php echo base_url('assets/images/').$data->photo;?>" width="500px"/></a>
+						<h4><class="text-center"><?= $data->caption; ?></h4></class>
 					</div>
-					<div class="col-md-4 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/v2.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="<?= base_url();?>assets/images/v2.jpg" alt=""/></a>
-					</div>
-					<div class="col-md-4 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/v3.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="<?= base_url();?>assets/images/v3.jpg" alt=""/></a>
-					</div>
-					<!-- <div class="col-md-3 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/v2.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="<?= base_url();?>assets/images/v2.jpg" alt=""/></a>
-					</div> -->
-					<div class="clearfix"></div>
 				</div>
-				<div class="gallery-1">
-					<div class="col-md-3 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/gl6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl6.jpg" alt=""/></a>
-					</div>
-					<div class="col-md-3 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/gl2.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl2.jpg" alt=""/></a>
-					</div>
-					<div class="col-md-3 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/r6.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/r6.jpg" alt=""/></a>
-					</div>
-					<div class="col-md-3 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/gl7.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl7.jpg" alt=""/></a>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="gallery-1">
-					<div class="col-md-3 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/gl4.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl4.jpg" alt=""/></a>
-					</div>
-					<div class="col-md-3 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/r3.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/r3.jpg" alt=""/></a>
-					</div>
-					<div class="col-md-3 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/r4.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/r4.jpg" alt=""/></a>
-					</div>
-					<div class="col-md-3 gallery-grid">
-						<a class="example-image-link" href="<?= base_url();?>assets/images/gl11.jpg" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img class="example-image" src="images/gl11.jpg" alt=""/></a>
-					</div>
+					
+					<?php } ?>
 					<div class="clearfix"></div>
 				</div>
 				

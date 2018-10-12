@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 Class m_artikel extends CI_Model
-{     
+{
 
       public $table1 = "artikel";  
       public $select_column1 = array("id", "title",);  
@@ -39,16 +39,6 @@ Class m_artikel extends CI_Model
       return array('data_artikel'=>$result); 
       }
 
-      function get_1_data($id)  //tampilkan semua data artikel di database
-      {  
-      $this->db->select('*');
-      $this->db->from('artikel');
-      $this->db->where('id_artikel', $id);
-      $query = $this->db->get();
-      $result = $query->result(); 
-      return array('data_artikel'=>$result); 
-      }
-
     function deleteArtikel($id_artikel){ // fungsi delete ke database
     $this->db->where('id_artikel', $id_artikel);
     $this->db->delete('artikel');
@@ -66,9 +56,13 @@ Class m_artikel extends CI_Model
         }
       }
 
-    function updateArtikel($data){ // fungsi update data ke database
-    $this->db->where($data);
-    $this->db->update('artikel', $data);
+    function updateArtikel($where, $data, $table){ // fungsi update data ke database
+    $this->db->where($where);
+    $this->db->update($table, $data);
+    }
+
+    function ambil_update($where,$table){
+      return $this->db->get_where($table,$where);
     }
   }
 ?>

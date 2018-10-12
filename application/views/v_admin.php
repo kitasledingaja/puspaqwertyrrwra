@@ -3,13 +3,6 @@
 
 <head>
     <title> Float Indonesia | Admin </title>
-    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-     <![endif]-->
-
      <meta charset="utf-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
@@ -122,12 +115,12 @@
                         <li class="dropdown">
                             <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
                                 <span><img class="img-circle " src="<?= base_url();?>assets/images/avatar-6.png" style="width:40px;" alt="User Image"></span>
-                                <span>Puspa <b>Kartika</b> <i class=" icofont icofont-simple-down"></i></span>
+                                <span><b><?php echo $this->session->userdata("username") ?></b> <i class=" icofont icofont-simple-down"></i></span>
 
                             </a>
                             <ul class="dropdown-menu settings-menu">
                                 <li><a href="#!"><i class="icon-settings"></i> Settings</a></li>
-                                <li><a href="profile.html"><i class="icon-user"></i> Profile</a></li>
+                                <li><a href="<?= base_url();?>index.php/profile/profile_admin"><i class="icon-user"></i> Profile</a></li>
                                 <li><a href="message.html"><i class="icon-envelope-open"></i> My Messages</a></li>
                                 <li class="p-0">
                                     <div class="dropdown-divider m-0"></div>
@@ -198,14 +191,14 @@
                 <div class="user-panel">
                     <div class="f-left image"><img src="<?= base_url();?>assets/images/avatar-6.png" alt="User Image" class="img-circle"></div>
                     <div class="f-left info">
-                        <p>Puspa Kartika</p>
+                        <p><?php echo $this->session->userdata("username") ?></p>
                         <p class="designation"> Web Programmer <i class="icofont icofont-caret-down m-l-5"></i></p>
                     </div>
                 </div>
                 <!-- sidebar profile Menu-->
                 <ul class="nav sidebar-menu extra-profile-list">
                     <li>
-                        <a class="waves-effect waves-dark" href="profile.html">
+                        <a class="waves-effect waves-dark" href="<?= base_url();?>index.php/profile/profile_admin">
                             <i class="icon-user"></i>
                             <span class="menu-text">View Profile</span>
                             <span class="selected"></span>
@@ -235,18 +228,19 @@
                         </a>                
                     </li>
                     <li class="nav-level">Components</li>
-                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Artikel</span><i class="icon-arrow-down"></i></a>
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Kelola Artikel</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/artikel/alldata"><i class="icon-arrow-right"></i>Lihat Data Artikel</a></li>
                             <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/artikel/summernote"><i class="icon-arrow-right"></i>Buat Artikel</a></li>
-                            <!-- <li><a class="waves-effect waves-dark" href="label-badge.html"><i class="icon-arrow-right"></i> Label Badge</a></li> -->
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/marchandise/datamerchandise"><i class="icon-arrow-right"></i>Buat Merchandise</a></li>
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/gallery/allgallery"><i class="icon-arrow-right"></i>Tambah Gallery</a></li>
                         </ul>
                     </li>
 
-                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-chart"></i><span> Charts &amp; Maps</span><span class="label label-success menu-caption">New</span><i class="icon-arrow-down"></i></a>
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-eye"></i><span> Lihat Data</span><i class="icon-arrow-down"></i></a>
                         <ul class="treeview-menu">
-                            <li><a class="waves-effect waves-dark" href="float-chart.html"><i class="icon-arrow-right"></i> Float Charts</a></li>
-                            <li><a class="waves-effect waves-dark" href="morris-chart.html"><i class="icon-arrow-right"></i> Morris Charts</a></li>
+                            <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/artikel/alldata"><i class="icon-arrow-right"></i>Lihat Data Artikel</a></li>
+                             <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/marchandise/dataall"><i class="icon-arrow-right"></i>Lihat Data Merchandise</a></li>
+                             <li><a class="waves-effect waves-dark" href="<?php echo base_url()?>index.php/gallery/alldata_gallery_admin"><i class="icon-arrow-right"></i>Lihat Data Gallery</a></li>
                         </ul>
                     </li>
 
@@ -512,56 +506,11 @@
     </div>
     <!-- 4-blocks row start -->
     <div class="row m-b-30 dashboard-header">
-                <!-- <div class="col-lg-3 col-sm-6">
-                    <div class="dashboard-primary bg-primary">
-                        <div class="sales-primary">
-                            <i class="icon-bubbles"></i>
-                            <div class="f-right">
-                                <h2 class="counter">4500</h2>
-                                <span>Total Sales</span>
-                            </div>
-                        </div>
-                        <div class="bg-dark-primary">
-                            <p class="week-sales">Total SALES</p>
-                            <p class="total-sales">432</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="bg-success dashboard-success">
-                        <div class="sales-success">
-                            <i class="icon-speedometer"></i>
-                            <div class="f-right">
-                                <h2 class="counter">3521</h2>
-                                <span>Last Week's Sale</span>
-                            </div>
-                        </div>
-                        <div class="bg-dark-success">
-                            <p class="week-sales">LAST WEEK'S SALES</p>
-                            <p class="total-sales ">432</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="bg-warning dasboard-warning">
-                        <div class="sales-warning">
-                            <i class="icon-basket-loaded"></i>
-                            <div class="f-right">
-                                <h2 class="counter">1085</h2>
-                                <span>New Orders</span>
-                            </div>
-                        </div>
-                        <div class="bg-dark-warning">
-                            <p class="week-sales">LAST WEEK'S SALES</p>
-                            <p class="total-sales">84</p>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="col-lg-3 col-sm-6">
                     <div class="col-sm-12 card dashboard-product">
-                        <span>Products</span>
-                        <h2 class="dashboard-total-products counter">4500</h2>
-                        <span class="label label-warning">Orders</span>New Orders
+                        <span>Users</span>
+                        <h2 class="dashboard-total-products counter"><?php echo $user;?></h2>
+                        <span class="label label-warning">Accounts</span>Jumlah Akun Terdaftar
                         <div class="side-box bg-warning">
                             <i class="icon-social-soundcloud"></i>
                         </div>
@@ -569,9 +518,9 @@
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="col-sm-12 card dashboard-product">
-                        <span>Products</span>
+                        <span>Artikel</span>
                         <h2 class="dashboard-total-products counter">37,500</h2>
-                        <span class="label label-primary">Sales</span>Last Week Sales
+                        <span class="label label-primary">Articles</span>Jumlah Seluruh Artikel
                         <div class="side-box bg-primary">
                             <i class="icon-social-soundcloud"></i>
                         </div>
@@ -579,9 +528,9 @@
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="col-sm-12 card dashboard-product">
-                        <span>Products</span>
+                        <span>Gallery</span>
                         <h2 class="dashboard-total-products">$<span class="counter">30,780</span></h2>
-                        <span class="label label-success">Sales</span>Total Sales
+                        <span class="label label-success">Gallery</span>Jumlah Gallery
                         <div class="side-box bg-success">
                             <i class="icon-bubbles"></i>
                         </div>
@@ -1503,52 +1452,6 @@
 </div>
 </div>
 </div>
-
-
-<!-- Warning Section Starts -->
-<!-- Older IE warning message -->
-<!--[if lt IE 9]>
-      <div class="ie-warning">
-          <h1>Warning!!</h1>
-          <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-          <div class="iew-container">
-              <ul class="iew-download">
-                  <li>
-                      <a href="http://www.google.com/chrome/">
-                          <img src="assets/images/browser/chrome.png" alt="Chrome">
-                          <div>Chrome</div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://www.mozilla.org/en-US/firefox/new/">
-                          <img src="assets/images/browser/firefox.png" alt="Firefox">
-                          <div>Firefox</div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="http://www.opera.com">
-                          <img src="assets/images/browser/opera.png" alt="Opera">
-                          <div>Opera</div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://www.apple.com/safari/">
-                          <img src="assets/images/browser/safari.png" alt="Safari">
-                          <div>Safari</div>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                          <img src="assets/images/browser/ie.png" alt="">
-                          <div>IE (9 & above)</div>
-                      </a>
-                  </li>
-              </ul>
-          </div>
-          <p>Sorry for the inconvenience!</p>
-      </div>
-      <![endif]-->
-      <!-- Warning Section Ends -->
 
       <!-- Required Jqurey -->
       <script src="<?php echo base_url('assets/plugins/jquery/dist/jquery.min.js');?>"></script>

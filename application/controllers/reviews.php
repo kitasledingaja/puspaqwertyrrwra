@@ -11,6 +11,9 @@
      }
 
 	public function review() {
-     $this->load->view('v_reviews'); 
+		$this->load->model('m_reviews');
+		$data_artikel = $this->m_reviews->get_artikel(); //ambil data artikel
+ 		$this->load->view('v_reviews',$data_artikel); // go to view and sent data
+     //$this->load->view('v_reviews'); 
  }
 }
